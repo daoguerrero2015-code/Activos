@@ -1,0 +1,27 @@
+fieldset {
+  border: 2px solid #007bff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.page-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;        /* Tamaño grande para destacar */
+  font-weight: 700;         /* Negrita */
+  color: #2c3e50;           /* Azul oscuro suave */
+  text-align: center;       /* Centrado en la página */
+  margin-bottom: 1.5rem;    /* Espacio debajo del título */
+  text-transform: uppercase; /* Opcional: todo en mayúsculas */
+  letter-spacing: 2px;       /* Espaciado entre letras */
+  border-bottom: 3px solid #3498db; /* Línea debajo para énfasis */
+  padding-bottom: 0.5rem;
+}

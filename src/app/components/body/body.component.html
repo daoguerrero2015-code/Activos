@@ -1,0 +1,111 @@
+<div class="row">
+    <div><br></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-title">Inventario de los activos de la empresa</div>
+    </div>
+</div>
+<fieldset class="p-3 border" style="max-width: 60%;">
+  <div class="d-flex justify-content-between align-items-center mb-6">
+    <legend class="mb-0 h5">Lista de Inventario</legend>
+
+    <button type="button" class="btn btn-success" (click)="abrirModal()">
+      Registrar
+    </button>
+
+
+  </div>
+  <!-- Aquí re-renderizamos la info -->
+   <div class="row">
+    <div class="container mt-4">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo Activo</th>
+        <th>Tipo Consumo</th>
+        <th>Fecha Registro</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaActivos">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.tipoActivo }}</td>
+        <td>{{ item.tipoConsumo }}</td>
+        <td>{{ item.fechaRegistro }}</td>
+        <td>{{ item.observaciones }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+   </div>
+  
+  <!-- Aquí iría el contenido del fieldset, como una tabla o formulario -->
+</fieldset>
+
+
+
+<!-- MODAL -->
+<div class="modal fade" id="modalCreacion" tabindex="-1" aria-labelledby="modalCreacionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado del modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCreacionLabel">Registrar Activo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <!-- Cuerpo del modal -->
+       <form id="formActivos">
+          <div class="modal-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="nombre_activo">Nombre *</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" id="nombre">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Tipo activo *</label>
+                        <select class="form-select" id="sel_tip_act">
+                            <option value="" selected>Selección</option>
+                            <option value="Muebles y Enseres">Muebles y Enseres</option>
+                            <option value="Computo">Computo</option>
+                            <option value="Papeleria">Papeleria</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Tipo consumo *</label>
+                        <select class="form-select" id="sel_tip_con">
+                            <option value="" selected>Selección</option>
+                            <option value="Consumo">Consumo</option>
+                            <option value="Prestamo">Prestamo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>          
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Fecha de Registro *</label>
+                <input type="date" class="form-control" id="fechaRegistro" name="fechaRegistro">
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="obser_txt" style="height: 300px"></textarea>
+                <label for="obser_txt">Observaciones *</label>
+            </div>          
+          </div>
+       </form>
+      
+
+      <!-- Pie del modal -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary"  (click)="guardar()">Guardar cambios</button>
+      </div>
+
+    </div>
+  </div>
+</div>
